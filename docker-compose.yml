@@ -1,0 +1,13 @@
+version: '3'
+services:
+  petbot-db:
+    image: postgres:10-alpine
+    container_name: petbot-db
+    restart: always
+    environment:
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=1234
+    volumes:
+      - ./postgresql/data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
