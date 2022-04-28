@@ -1,6 +1,10 @@
-# -*- coding: utf-8 -*-
-from __future__ import unicode_literals
+from rest_framework import generics
+from .models import Music
+from .serializers import MusicSerializer
 
-from django.shortcuts import render
+# Create your view here.
 
-# Create your views here.
+class Musiclist (generics.ListCreateAPIView):
+    
+    queryset = Music.objects.all()
+    serializer_class = MusicSerializer
